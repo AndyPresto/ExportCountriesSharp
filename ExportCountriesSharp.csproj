@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ISO3166" Version="1.0.3" />
+  </ItemGroup>
+
 </Project>
