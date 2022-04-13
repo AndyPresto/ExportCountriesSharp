@@ -1,6 +1,7 @@
 ﻿using ISO3166;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +28,26 @@ namespace ExportCountriesSharp.Exporter
             sb.AppendLine("{");
             foreach (var item in countries)
             {
+                RegionInfo myRI1;
+
+                try
+                {
+                    myRI1 = new RegionInfo(item.TwoLetterCode);
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
                 sb.AppendLine("new Country");
                 sb.AppendLine("{");
                 sb.AppendLine("Blacklisted = false,");
-                sb.AppendLine($"Code = \"{item.TwoLetterCode}\",");
                 sb.AppendLine($"Name = \"{item.Name}\"");
+                sb.AppendLine($"NameNative = \"{myRI1.NativeName}\"");
+                sb.AppendLine($"NameEnglish = \"{myRI1.EnglishName}\"");
+                sb.AppendLine($"Code2 = \"{item.TwoLetterCode}\",");
+                sb.AppendLine($"Code3 = \"{item.ThreeLetterCode}\",");
+                sb.AppendLine($"CodeNumeric = \"{item.NumericCode}\",");
+                sb.AppendLine($"DefaultCurrency = \"{myRI1.ISOCurrencySymbol}\",");
                 sb.AppendLine("}");
             }
             sb.AppendLine("}");
