@@ -41,14 +41,14 @@ namespace ExportCountriesSharp.Exporter
                 sb.AppendLine("new Country");
                 sb.AppendLine("{");
                 sb.AppendLine("Blacklisted = false,");
-                sb.AppendLine($"Name = \"{item.Name}\"");
-                sb.AppendLine($"NameNative = \"{myRI1.NativeName}\"");
-                sb.AppendLine($"NameEnglish = \"{myRI1.EnglishName}\"");
+                sb.AppendLine($"Name = \"{item.Name}\",");
+                sb.AppendLine($"NameNative = \"{myRI1.NativeName}\",");
+                sb.AppendLine($"NameEnglish = \"{myRI1.EnglishName}\",");
                 sb.AppendLine($"Code2 = \"{item.TwoLetterCode}\",");
                 sb.AppendLine($"Code3 = \"{item.ThreeLetterCode}\",");
                 sb.AppendLine($"CodeNumeric = \"{item.NumericCode}\",");
                 sb.AppendLine($"DefaultCurrency = \"{myRI1.ISOCurrencySymbol}\",");
-                sb.AppendLine("}");
+                sb.AppendLine("},");
             }
             sb.AppendLine("}");
             _fileContents = sb.ToString();
